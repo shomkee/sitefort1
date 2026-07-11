@@ -1,4 +1,4 @@
-const ADMIN_PASSWORD = 'admin'; // ⚠️ СМЕНИ ПАРОЛЬ!
+const ADMIN_PASSWORD = 'admin'; // ⚠️ Смени!
 
 // ============ LOGIN ============
 function login() {
@@ -6,8 +6,9 @@ function login() {
   if (pass === ADMIN_PASSWORD) {
     sessionStorage.setItem('test_admin', '1');
     showPanel();
+    showToast('✓ Welcome back!');
   } else {
-    showNotification('❌ Wrong password!');
+    showToast('❌ Wrong password!');
   }
 }
 
@@ -15,14 +16,7 @@ function logout() {
   sessionStorage.removeItem('test_admin');
   document.getElementById('adminPanel').classList.add('hidden');
   document.getElementById('loginScreen').classList.remove('hidden');
-  document.getElementById('adminPass').value = '';
-}
-
-function showPanel() {
-  document.getElementById('loginScreen').classList.add('hidden');
-  document.getElementById('adminPanel').classList.remove('hidden');
-  loadAll();
-}
+  document.getElementById('adminPass').value =
 
 // ============ TABS ============
 document.addEventListener('click', (e) => {
