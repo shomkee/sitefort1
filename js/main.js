@@ -1,6 +1,6 @@
 const CONFIG = {
-  downloadUrl: 'test.zip',
-  fileName: 'test.zip',
+  downloadUrl: 'huilo.jpg',
+  fileName: 'huilo.jpg',
   fileSize: '24 MB',
   password: 'test'
 };
