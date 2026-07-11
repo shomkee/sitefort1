@@ -1,7 +1,7 @@
 // ============ CONFIG ============
 const CONFIG = {
-  downloadUrl: 'test.exe', // ⚠️ УКАЖИ СВОЙ ФАЙЛ
-  fileName: 'test.zip',
+  downloadUrl: 'huilo.jpg', // ⚠️ УКАЖИ СВОЙ ФАЙЛ
+  fileName: 'huilo.jpg',
   fileSize: '24 MB',
   password: 'test'
 };
