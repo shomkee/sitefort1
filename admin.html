@@ -98,36 +98,63 @@
 
   <!-- General -->
   <div class="tab-content" id="tab-general">
-    <div class="admin-card">
-      <h2>🔑 Archive Password</h2>
-      <div class="field">
-        <label>Password (shown in install steps)</label>
-        <input type="text" id="cfgPassword" placeholder="test">
-      </div>
-      <button class="btn-save" onclick="savePassword()">Save Password</button>
+  <div class="admin-card">
+    <h2>🔑 Archive Password</h2>
+    <div class="field">
+      <label>Password (shown in install steps)</label>
+      <input type="text" id="cfgPassword" placeholder="test">
+      <small>This is the password users will use to extract the archive</small>
     </div>
-
-    <div class="admin-card">
-      <h2>📦 Download File</h2>
-      <div class="field">
-        <label>File URL / Name</label>
-        <input type="text" id="cfgFileUrl" placeholder="test.zip">
-        <small style="color:var(--text-dim);font-size:.8rem;margin-top:4px;display:block">
-          Place the file in the site root or provide full URL
-        </small>
-      </div>
-      <div class="field">
-        <label>Display Name</label>
-        <input type="text" id="cfgFileName" placeholder="test.zip">
-      </div>
-      <div class="field">
-        <label>File Size (display)</label>
-        <input type="text" id="cfgFileSize" placeholder="24 MB">
-      </div>
-      <button class="btn-save" onclick="saveDownload()">Save Download Settings</button>
-    </div>
+    <button class="btn-admin" onclick="savePassword()">Save Password</button>
   </div>
 
+  <div class="admin-card">
+    <h2>📦 Download File</h2>
+
+    <!-- Способ 1: Указать URL файла -->
+    <div class="field">
+      <label>File URL (recommended)</label>
+      <input type="text" id="cfgUrl" placeholder="https://github.com/USER/REPO/releases/download/v1.0/test.zip">
+      <small>Paste link from GitHub Releases, Google Drive, MEGA, or your server</small>
+    </div>
+
+    <!-- Способ 2: Загрузить файл -->
+    <div class="field">
+      <label>Or upload new file</label>
+      <div class="upload-area" id="uploadArea">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" style="margin:0 auto 10px;display:block">
+          <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <p style="margin:0 0 6px">Click or drag file here</p>
+        <small style="color:var(--text-3)">Max 100 MB</small>
+        <input type="file" id="fileInput" style="display:none">
+      </div>
+      <div id="uploadStatus" class="upload-status" style="display:none">
+        <div class="file-info">
+          <span class="file-icon">📦</span>
+          <div class="file-details">
+            <div class="file-name" id="fileName">file.zip</div>
+            <div class="file-size" id="fileSize">0 MB</div>
+          </div>
+          <button class="btn-del" onclick="removeFile()">Remove</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Display Name</label>
+      <input type="text" id="cfgName" placeholder="test.zip">
+    </div>
+
+    <div class="field">
+      <label>File Size (display)</label>
+      <input type="text" id="cfgSize" placeholder="24 MB">
+    </div>
+
+    <button class="btn-admin" onclick="saveConfig()">💾 Save All Settings</button>
+    <button class="btn-admin" style="margin-left:10px;background:linear-gradient(135deg,#10b981,#059f68)" onclick="testDownload()">🧪 Test Download</button>
+  </div>
+</div>
   <!-- Reviews -->
   <div class="tab-content hidden" id="tab-reviews">
     <div class="admin-card">
